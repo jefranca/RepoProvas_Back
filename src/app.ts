@@ -1,13 +1,13 @@
 import "./setup";
 
-import express, {Request,Response} from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import "reflect-metadata";
 import connectDatabase from "./database";
 
-import * as disciplineController from "./controllers/disciplineControllers"
-import * as professorController from "./controllers/professorControllers"
-import * as examController from "./controllers/examControllers"
+import * as disciplineController from "./controllers/disciplineControllers";
+import * as professorController from "./controllers/professorControllers";
+import * as examController from "./controllers/examControllers";
 import errorHandler from "./middlewares/errorHandler";
 
 const app = express();
@@ -17,7 +17,10 @@ app.use(express.json());
 app.get("/health", async (req: Request, res: Response) => res.sendStatus(200));
 app.get("/disciplines", disciplineController.getDisciplines);
 app.get("/professors/:idDiscipline", professorController.getProfessors);
-app.post("/exams", examController.postExam)
+app.get("/professors", professorController.getAllProfessors);
+app.post("/exams", examController.postExam);
+app.get("/exams/discipline/:idDiscipline", examController.getExam);
+app.get("/exams/professor/:idProfessor", examController.getExam);
 app.use(errorHandler);
 
 export async function init() {

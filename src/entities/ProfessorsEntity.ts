@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from "typeorm";
+import DisciplineEntity from "./DisciplinesEntity";
 
 @Entity("professors")
 export default class ProfessorEntity {
@@ -10,4 +17,8 @@ export default class ProfessorEntity {
 
   @Column()
   discipline_id: number;
+
+  @ManyToOne(() => DisciplineEntity, (discipline) => discipline.id)
+  @JoinColumn({ name: "discipline_id" })
+  disciplines: DisciplineEntity;
 }

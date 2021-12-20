@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from "typeorm";
+import ProfessorEntity from "./ProfessorsEntity";
 
 @Entity("disciplines")
 export default class DisciplineEntity {
@@ -7,4 +8,6 @@ export default class DisciplineEntity {
 
   @Column()
   name: string;
+
+
 }

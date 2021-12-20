@@ -1,8 +1,8 @@
 class ProfessorNotFound extends Error {
-    constructor(message: string) {
-      super(message);
-      this.name = 'ProfessorNotFound';
-    }
+  constructor(message: string) {
+    super(message);
+    this.name = "ProfessorNotFound";
   }
-  
-  export default ProfessorNotFound;
+}
+
+export default ProfessorNotFound;
