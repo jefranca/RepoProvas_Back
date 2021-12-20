@@ -11,3 +11,9 @@ export async function getProfessors(
   if (!professors.length) throw new ProfessorNotFound("Professor Not Found");
   return professors;
 }
+
+export async function getAllProfessors(): Promise<ProfessorEntity[]> {
+  const professors = await getRepository(ProfessorEntity).find();
+  if (!professors.length) throw new ProfessorNotFound("Professor Not Found");
+  return professors;
+}

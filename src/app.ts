@@ -17,6 +17,7 @@ app.use(express.json());
 app.get("/health", async (req: Request, res: Response) => res.sendStatus(200));
 app.get("/disciplines", disciplineController.getDisciplines);
 app.get("/professors/:idDiscipline", professorController.getProfessors);
+app.get("/professors", professorController.getAllProfessors);
 app.post("/exams", examController.postExam);
 app.get("/exams/discipline/:idDiscipline", examController.getExam);
 app.get("/exams/professor/:idProfessor", examController.getExam);

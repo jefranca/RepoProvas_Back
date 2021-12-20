@@ -16,3 +16,19 @@ export async function getProfessors(
     next(error);
   }
 }
+
+export async function getAllProfessors(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const result = await professorService.getAllProfessors();
+    res.send(result);
+  } catch (error) {
+    if (error.name === "NoDisciplineFound")
+      return res.status(404).send(error.message);
+    next(error);
+  }
+}
+
