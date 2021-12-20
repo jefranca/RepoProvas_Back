@@ -1,8 +1,8 @@
 class UrlAlreadyExist extends Error {
-    constructor(message: string) {
-      super(message);
-      this.name = 'UrlAlreadyExist';
-    }
+  constructor(message: string) {
+    super(message);
+    this.name = "UrlAlreadyExist";
   }
-  
-  export default UrlAlreadyExist;
+}
+
+export default UrlAlreadyExist;
